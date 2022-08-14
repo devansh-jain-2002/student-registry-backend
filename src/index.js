@@ -6,10 +6,14 @@ const port = process.env.PORT || 3000
 app.use(express.json())
 
 app.get('/users',(req,res)=>{
-    Student.find(req.query).then((users)=>{
+    Student.find(
+        {"name":{$regex : req.body.name?req.body.name:""},
+        "roll":{$regex : req.body.roll?req.body.roll:""},
+        "userID":{$regex : req.body.userID?req.body.userID:""},
+        "branch":{$regex : req.body.branch?req.body.branch:""},}).then((users)=>{
         res.send(users)
     }).catch((e)=>{
-        res.send(500).send()
+        res.status(500).send()
     })
 })
 app.post('/users',(req,res)=>{

@@ -5,7 +5,7 @@ const Student = mongoose.model('Student',{
         required : true
     },
     roll :{
-        type:Number ,
+        type:String ,
         required : true  
     },
     branch:{
