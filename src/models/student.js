@@ -15,6 +15,12 @@ const Student = mongoose.model('Student',{
     userID:{
         type: String ,
         required : true
+    },
+    StudentGuideRoll:{
+        type: String
+    },
+    BacchasRollNo:{
+        type: [String]
     }
 })
 module.exports = Student
